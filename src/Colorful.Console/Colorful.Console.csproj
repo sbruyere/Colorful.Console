@@ -6,7 +6,7 @@
     <AssemblyTitle>Colorful.Console</AssemblyTitle>
     <VersionPrefix>1.2</VersionPrefix>
     <Authors>Tom Akita;Muhammad Rehan Saeed;Matt Furden;Drew Noakes;Jamie Gould;Marcos Vinicius Maia;Sergey Korshunov;Adam Schiavone;IGusev;Shreyas Jejurkar</Authors>
-    <TargetFrameworks>netstandard2.0;net40;net45;net451;net452;net46;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net40;net45;net451;net452;net46;net461;net6.0;net8.0</TargetFrameworks>
     <AssemblyName>Colorful.Console</AssemblyName>
     <PackageId>Colorful.Console</PackageId>
     <PackageTags>Style;Styled;Output;Colourful;Colorful;Console;Command;Line;ASCII;Art;FIGlet</PackageTags>
@@ -24,21 +24,12 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="Microsoft.CSharp" Version="4.0.1" />
-    <PackageReference Include="System.Collections" Version="4.0.11" />
-    <PackageReference Include="System.Collections.Concurrent" Version="4.0.12" />
-    <PackageReference Include="System.Console" Version="4.0.0" />
-    <PackageReference Include="System.Diagnostics.Debug" Version="4.0.11" />
-    <PackageReference Include="System.Dynamic.Runtime" Version="4.0.11" />
-    <PackageReference Include="System.Globalization" Version="4.0.11" />
-    <PackageReference Include="System.IO.FileSystem" Version="4.0.1" />
-    <PackageReference Include="System.Linq" Version="4.1.0" />
-    <PackageReference Include="System.Runtime" Version="4.1.0" />
-    <PackageReference Include="System.Runtime.Extensions" Version="4.1.0" />
-    <PackageReference Include="System.Runtime.InteropServices" Version="4.1.0" />
-    <PackageReference Include="System.Text.RegularExpressions" Version="4.1.0" />
+  <ItemGroup Condition="'$(TargetFramework)' != 'net40'">
+    <PackageReference Include="Microsoft.CSharp">
+      <Version>4.7.0</Version>
+    </PackageReference>
   </ItemGroup>
+
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
     <Reference Include="System.Drawing" />
